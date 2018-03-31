@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../css/style.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../js/manage.js"></script>
+  </head>
+  <body>
+    <div id="wslList">
+      <distro-list v-for="(distro, index) in distros" :key="distro.index" :name="distro" :id="index">
+
+      </distro-list>
+    </div>
+    <script src="../js/wslList.js"></script>
+  </body>
+</html>

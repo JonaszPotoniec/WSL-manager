@@ -1,0 +1,25 @@
+{
+  "name": "wsl-manager",
+  "version": "0.0.1",
+  "description": "unofficial gui manager for WSL",
+  "main": "js/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonaszPotoniec/WSL-manager.git"
+  },
+  "author": "Jonasz Potoniec",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/JonaszPotoniec/WSL-manager/issues"
+  },
+  "homepage": "https://github.com/JonaszPotoniec/WSL-manager#readme",
+  "dependencies": {
+    "electron": "1.8.4",
+    "vue": "2.5.16",
+    "node-run-cmd": "1.0.1",
+    "jquery": "3.3.1"
+  }
+}

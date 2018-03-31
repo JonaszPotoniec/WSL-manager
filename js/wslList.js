@@ -1,16 +1,17 @@
 var nrc = require('node-run-cmd');
 
 function refreshList(){
-  //wslListVue.distros.forEach(function(obj, index){if(index != 1) Vue.delete(obj);})
-  //wslListVue.distros = [];
-  nrc.run('wslconfig /l', { onData: function(data) {
-    var dataArr = data.split(/\r?\n/);
-    dataArr.splice(0, 1);
-    dataArr.splice(-1, 1);
-    dataArr.forEach(function(obj, index){
-      Vue.set(wslListVue.distros, index, obj.replace(/[^a-zA-Z0-9_ /(/)/-]+/g, ""));
-    })
-  }});
+  return new Promise(function (fulfill, reject){
+    nrc.run('wslconfig /l', { onData: function(data) {
+      var dataArr = data.split(/\r?\n/);
+      dataArr.splice(0, 1);
+      dataArr.splice(-1, 1);
+      dataArr.forEach(function(obj, index){
+        Vue.set(wslListVue.distros, index, obj.replace(/[^a-zA-Z0-9_ /(/)/-]+/g, ""));
+      })
+      fulfill();
+    }});
+  })
 }
 
 let distroList = {
@@ -48,9 +49,13 @@ Vue.component('distro-list', Vue.extend(distroList));
 var wslListVue = new Vue({
   el: "#wslList",
   data: {
-    distros: [0, 3]
+    distros: []
   },
-  mounted: function(){refreshList()}
+  mounted: function(){
+    refreshList().then(function(){
+      if(wslListVue.distros.length == 0){
+        document.getElementById("errHeader").innerHTML = "Couldn't find any WLS installed. Please install one from Windows Store"
+      }
+    })
+  }
 })
-
-// v-for="wsl in wslList"

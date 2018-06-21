@@ -1,4 +1,5 @@
-var nrc = require('node-run-cmd');
+const nrc = require('node-run-cmd');
+const remote = require('electron').remote;
 
 function refreshList(){
   return new Promise(function (fulfill, reject){
@@ -56,6 +57,7 @@ var wslListVue = new Vue({
       if(wslListVue.distros.length == 0){
         document.getElementById("errHeader").innerHTML = "Couldn't find any WLS installed. Please install one from Windows Store"
       }
+      remote.getGlobal('sharedObj').distros = wslListVue.distros;
     })
   }
-})
+});

@@ -1,10 +1,11 @@
 {
   "name": "wsl-manager",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "unofficial gui manager for WSL",
   "main": "js/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager . wsl-manager --platform win32 --out dist/ --icon images/icon.ico"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
     "vue": "2.5.16",
     "node-run-cmd": "1.0.1",
     "jquery": "3.3.1"
+  },
+  "devDependencies": {
+    "electron-packager": "^11.2.0"
   }
 }

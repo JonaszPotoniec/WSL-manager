@@ -9,6 +9,7 @@
   </head>
   <body>
     <h1 id="errHeader"></h1>
+    <button onClick="refreshList()">refresh</button>
     <div id="wslList">
       <distro-list v-for="(distro, index) in distros" :key="distro.index" :name="distro" :id="index">
 

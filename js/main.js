@@ -23,6 +23,10 @@ let myOpts = Object.assign({}, defaultWindowOpts, {
 function createTray(){
     tray = new electron.Tray(iconpath);
 
+    updateTray()
+}
+
+function updateTray(){
     manageDistros.refreshList(sharedObj, function() {
         tray.setContextMenu(trayContent());
     });
@@ -41,6 +45,7 @@ function trayContent(){
                 manageDistros.setDefault(String(element), function(){
                     manageDistros.refreshList(sharedObj, function(){
                         tray.setContextMenu(trayContent());
+                        mainWindow.webContents.send("update", true);
                 })});
             }
         });
@@ -120,3 +125,4 @@ app.on('window-all-closed', function () {
     app.quit()
 });
 
+electron.ipcMain.on("update", function(){updateTray()})

@@ -1,5 +1,6 @@
 const nrc = require('node-run-cmd');
 const remote = require('electron').remote;
+const ipcRenderer = require('electron').ipcRenderer;
 
 function refreshList(){
   return new Promise(function (fulfill, reject){
@@ -19,7 +20,7 @@ let distroList = {
   props: ['name', 'id'],
   template: `
     <div class="box">
-      <h1>{{name}}</h1> <div v-on:click="setDefault({name})" class="button" style="background-color: rgb(79, 121, 84)">set default</div> <div v-on:click="deleteDistr({name}, {id})" class="button" style="background-color: rgb(121, 79, 79)">delete</div>
+      <h1>{{name}}</h1> <button v-on:click="setDefault({name})" class="nice-btn green">set default</button> <button v-on:click="deleteDistr({name}, {id})" class="nice-btn red">delete</button>
     </div>
   `,
   methods: {
@@ -58,6 +59,9 @@ var wslListVue = new Vue({
         document.getElementById("errHeader").innerHTML = "Couldn't find any WLS installed. Please install one from Windows Store"
       }
       remote.getGlobal('sharedObj').distros = wslListVue.distros;
+      ipcRenderer.send("update", true)
     })
   }
 });
+
+ipcRenderer.on("update", function(){refreshList()})

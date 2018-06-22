@@ -9,7 +9,11 @@
   </head>
   <body>
     <h1 id="errHeader"></h1>
-    <button onClick="refreshList()">refresh</button>
+    <div class="fixed-bottom-left">
+      <button onClick="refreshList()" class="nice-btn blue" style="font-size: 100%">refresh</button>
+      <input type="checkbox" id="settingCheckbox" name="settingCheckbox" style="display: none"/>
+      <label for="settingCheckbox" onClick="refreshList()" class="nice-btn blue" style="font-size: 100%; display: block">settings</label>
+    </div>
     <div id="wslList">
       <distro-list v-for="(distro, index) in distros" :key="distro.index" :name="distro" :id="index">
 

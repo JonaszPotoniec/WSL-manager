@@ -20,28 +20,45 @@ body {
     font-size: 110%;
 }
 
+/*
+
+    nice buttons
+    https://codepen.io/jonaszpotoniec/pen/zajLOg
+
+ */
+
 .nice-btn.green {
     --border-color: #bce2ba;
     --water-color: #d9efd7;
     --hue-color: #e6ffe8;
+    --text-color: #80a87e;
 }
 
 .nice-btn.red {
     --border-color: #e0a6a6;
     --water-color: #f4d0d0;
     --hue-color: #ffd9d9;
+    --text-color: #c68383;
 }
 
 .nice-btn.blue {
     --border-color: #628fe0;
     --water-color: #b0c9e0;
     --hue-color: #e0f3ff;
+    --text-color: #3665bc;
+}
+
+.nice-btn.grey {
+    --border-color: #6d6d6d;
+    --water-color: #b1b1b1;
+    --hue-color: #e6e6e6;
+    --text-color: #6d6d6d;
 }
 
 .nice-btn {
     position: relative;
     font-family: 'Lato', sans-serif;
-    color: #666;
+    color: var(--text-color);
     margin: 1em 1em 0 0;
     padding: .8em;
     border: solid var(--border-color) 0.1em;
@@ -96,4 +113,64 @@ body {
     bottom: 0;
     margin: .5em;
     vertical-align: bottom;
+}
+
+/*
+
+ foldable settings
+ https://codepen.io/jonaszpotoniec/pen/PaeXEr?editors=1100
+
+*/
+
+#settings > input {
+    display: none;
+}
+
+
+
+#settings > input:checked + .nice-btn:before {
+    top: -10%;
+}
+
+#settings > input:checked + .nice-btn:after {
+    top: 0;
+}
+
+#settings > input:checked + label + .contentContainer {
+    width: 21em;
+}
+
+#settings > .contentContainer {
+    width: 0;
+    overflow: hidden;
+    transition: all 1s;
+    position: absolute;
+    top: -22em;
+    left: 5.5em;
+}
+
+#settings > .contentContainer > .formContainer {
+    background: linear-gradient(45deg, #070606, #42352a);
+    width: 20em;
+    height: 30em;
+    position: relative;
+    left: 1.5em;
+    text-align: center;
+    color: white;
+}
+
+#settings > .contentContainer > .formContainer:before {
+    content: "";
+    display: block;
+    position: relative;
+    width: 2em;
+    height: 2em;
+    top: 27.55em;
+    left: -1em;
+    background: linear-gradient(90deg, #080707, #0b0909);
+    transform: rotate(45deg);
+}
+
+#settings > .contentContainer > .formContainer > form > * {
+    margin: 1em;
 }

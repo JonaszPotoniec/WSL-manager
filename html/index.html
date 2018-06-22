@@ -11,8 +11,23 @@
     <h1 id="errHeader"></h1>
     <div class="fixed-bottom-left">
       <button onClick="refreshList()" class="nice-btn blue" style="font-size: 100%">refresh</button>
-      <input type="checkbox" id="settingCheckbox" name="settingCheckbox" style="display: none"/>
-      <label for="settingCheckbox" onClick="refreshList()" class="nice-btn blue" style="font-size: 100%; display: block">settings</label>
+      <div id="settings">
+        <input type="checkbox" id="settingCheckbox" checked="checked"/>
+        <label for="settingCheckbox" class="nice-btn grey" style="font-size: 100%; display: block">settings</label>
+        <div class="contentContainer">
+          <div class="formContainer">
+            <h1>settings</h1>
+            <form id="settingsForm">
+              Close to tray: <input name="closeToTray" type="checkbox"/><br/>
+              Debug mode: <input name="debugMode" type="checkbox"/><br/><br>
+              Search interval:<br>(0 for disabled)<br>
+              <input name="searchInterval" type="number"/><br/>
+            </form>
+            <button onClick="saveSettings()">submit</button>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div id="wslList">
       <distro-list v-for="(distro, index) in distros" :key="distro.index" :name="distro" :id="index">
@@ -20,5 +35,6 @@
       </distro-list>
     </div>
     <script src="../js/wslList.js"></script>
+    <script src="../js/config.js"></script>
   </body>
 </html>

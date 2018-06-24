@@ -20,6 +20,26 @@ body {
     font-size: 110%;
 }
 
+input[type='number'] {
+    border: none;
+    padding: .15em .5em;
+    border-radius: .5em;
+}
+
+.formContainer > button {
+    border: none;
+    padding: .2em .5em;
+    border-radius: .5em;
+}
+
+.formContainer > p {
+    padding: .2em .5em;
+    font-size: .8em;
+    position: absolute;
+    bottom: 5%;
+    text-align: center;
+}
+
 /*
 
     nice buttons

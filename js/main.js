@@ -110,7 +110,7 @@ function createWindow() {
 app.on('ready', function(){
     createWindow();
     createTray();
-    if(config["searchInterval"])
+    if(config["searchInterval"] != 0)
         setInterval(function(){
             tray.setContextMenu(trayContent())
         }, config["searchInterval"]);

@@ -62,3 +62,6 @@ dist/
 
 #ide config
 .idea/
+
+#app config
+config.json

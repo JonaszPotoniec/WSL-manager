@@ -1,6 +1,6 @@
 {
   "name": "wsl-manager",
-  "version": "0.1.0",
+  "version": "0.4.9",
   "description": "unofficial gui manager for WSL",
   "main": "js/main.js",
   "scripts": {

@@ -1,3 +1,4 @@
+const jsonfile = require('jsonfile');
 const electron = require('electron');
 const app = electron.app;
 let tray = null;
@@ -8,7 +9,14 @@ const path = require('path');
 const url = require('url');
 
 let iconpath = path.join(__dirname, '/../images/icon.ico');
-let config = require(path.join(__dirname, '/../config.json'));
+
+const configPath = 'config.json';
+const defaultConfig = {
+    "closeToTray": true,
+    "debug": false,
+    "searchInterval": "0"
+};
+let config = [];
 
 global.sharedObj = {distros: []};
 
@@ -106,6 +114,18 @@ function createWindow() {
     });
 
 }
+
+try {
+    throw jsonfile.readFileSync(configPath);
+} catch (response) {
+    if(response["code"] === "ENOENT") {
+        console.log("Config file not found. Loading default settings");
+        config = defaultConfig;
+    }else{
+        config = response;
+    }
+}
+
 
 app.on('ready', function(){
     createWindow();

@@ -34,9 +34,9 @@ It doesn't require installation nor admin rights.
   
 |setting | description |
 |--------|-------------|
-|refreshList()|Forces refresh. Can be also done with a button|
-|wslListVue.distros|Gives list of found distributions|
-|ipcRenderer.on("update", function(){refreshList()})|Refreshes tray icon|
+|updateList()|Forces refresh. Can be also done with a button|
+|getDistroList()|Gives list of found distributions|
+|refreshTrayIcon()|Refreshes tray icon|
 
 </center>
 

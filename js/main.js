@@ -42,7 +42,7 @@ function updateTray(){
 
 function trayContent(){
     var distrosOptions = [{
-        label: "set default",
+        label: "Set default",
         submenu: []
     }];
 

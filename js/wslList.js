@@ -16,6 +16,27 @@ function refreshList(){
   })
 }
 
+function updateList() {
+    refreshList().then(function(){
+        if(wslListVue.distros.length === 0){
+            document.getElementById("errHeader").innerHTML = "Couldn't find any WLS installed. Please install one from Windows Store"
+        }
+        remote.getGlobal('sharedObj').distros = wslListVue.distros;
+        ipcRenderer.send("update", true)
+    })
+}
+
+function refreshTrayIcon() {
+    ipcRenderer.send("update", true);
+}
+
+function getDistroList() {
+    return {
+        "Renderer list": wslListVue.distros,
+        "Main list": remote.getGlobal('sharedObj').distros
+    };
+}
+
 let distroList = {
   props: ['name', 'id'],
   template: `
@@ -44,7 +65,7 @@ let distroList = {
       }
     }
   }
-}
+};
 
 Vue.component('distro-list', Vue.extend(distroList));
 
@@ -53,15 +74,7 @@ var wslListVue = new Vue({
   data: {
     distros: []
   },
-  mounted: function(){
-    refreshList().then(function(){
-      if(wslListVue.distros.length == 0){
-        document.getElementById("errHeader").innerHTML = "Couldn't find any WLS installed. Please install one from Windows Store"
-      }
-      remote.getGlobal('sharedObj').distros = wslListVue.distros;
-      ipcRenderer.send("update", true)
-    })
-  }
+  mounted: updateList()
 });
 
 ipcRenderer.on("update", function(){refreshList()})

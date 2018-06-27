@@ -21,7 +21,7 @@ It doesn't require installation nor admin rights.
 |--------|-------------|
 | Close to tray   | Define if app should be closed or minimized to tray after clicking close button |
 | Debug mode      | Turns on debug mode |
-| Search interval | As default, distibution list only refreshes after changes like deleting or changing default. With this option you an set time in which list will be updated. It's useful if you are changing distributions frequently |
+| Search interval | As default, distibution list only refreshes after changes like deleting or changing default. With this option you can set time in which list will be updated. It's useful if you are changing distributions frequently |
 
 ***
 

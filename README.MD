@@ -4,10 +4,10 @@
 ***  
   
 For now my app let's you delete or set as default any installed instance of WSL
-<img src="docs/img/app.png" width="50%" align="center">
+<p align="center"><img src="docs/img/app.png" width="50%"></p>
 
 It supports extremally useful icon in notification area which lets you set your default distribution without opening an app
-![](docs/img/tray.png)  
+<p align="center"><img src="docs/img/tray.png"></p>  
 
 All you need to do is download latest [release](https://github.com/JonaszPotoniec/WSL-manager/releases)  
 It doesn't require installation nor admin rights.

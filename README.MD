@@ -1,4 +1,4 @@
-# WSL Manager</h1>
+# WSL Manager
 #### An easy way to manage your multiple linux subsystems
   
 For now my app let's you delete or set as default any installed instance of WSL

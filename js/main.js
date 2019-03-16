@@ -8,8 +8,8 @@ const url = require('url');
 let mainWindow;
 var defaultWindowOpts = {width: 800, height: 600,  fullscreen: false, titleBarStyle: 'hidden'};
 var myOpts = Object.assign({}, defaultWindowOpts, {
-    titleBarStyle: 'hidden',
-    overlayScrollbars: false
+  titleBarStyle: 'hidden',
+  overlayScrollbars: false
 });
 
 function createWindow () {
@@ -20,11 +20,11 @@ function createWindow () {
 
   mainWindow.on('closed', function () {
     mainWindow = null
-  })
+  });
 }
 
-app.on('ready', createWindow)
+app.on('ready', createWindow);
 
 app.on('window-all-closed', function () {
-  app.quit()
+  app.quit();
 });

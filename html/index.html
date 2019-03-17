@@ -1,17 +1,44 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <link href="../css/style.css" rel="stylesheet" />
+
+<head>
+    <meta charset="utf-8"/>
+    <link href="../css/style.css" rel="stylesheet"/>
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/vue/dist/vue.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1 id="errHeader"></h1>
+
     <div id="wslList">
       <distro-list v-for="(distro, index) in distros" :key="distro.index" :name="distro" :id="index" />
     </div>
+
+    <div class="fixed-bottom-left">
+        <button onClick="updateList()" class="nice-btn blue" style="font-size: 100%">refresh</button>
+        <div id="settings">
+            <input type="checkbox" id="settingCheckbox"/>
+            <label for="settingCheckbox" class="nice-btn grey" style="font-size: 100%; display: block">settings</label>
+            <div class="contentContainer">
+                <div class="formContainer">
+                    <h1>settings</h1>
+                    <form id="settingsForm">
+                        Close to tray: <input name="closeToTray" type="checkbox"/><br/>
+                        Debug mode: <input name="debugMode" type="checkbox"/><br/><br>
+                        Search interval:<br>(0 for disabled)<br>
+                        <input name="searchInterval" type="number"/><br/>
+                    </form>
+                    <button onClick="saveSettings()">save settings</button>
+                    <p>To apply the changes, restart the application</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="../js/wslList.js"></script>
-  </body>
+    <script src="../js/config.js"></script>
+</body>
+
 </html>

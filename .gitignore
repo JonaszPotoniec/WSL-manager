@@ -57,3 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
+# compile directory
+dist/
+
+#ide config
+.idea/
+
+#app config
+config.json

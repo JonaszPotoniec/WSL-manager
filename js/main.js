@@ -15,7 +15,6 @@ var myOpts = Object.assign({}, defaultWindowOpts, {
 function createWindow () {
   mainWindow = new BrowserWindow(myOpts);
   mainWindow.setMenu(null);
-  //mainWindow.openDevTools();
   mainWindow.loadURL(`file://${__dirname}/../html/index.html`);
 
   mainWindow.on('closed', function () {

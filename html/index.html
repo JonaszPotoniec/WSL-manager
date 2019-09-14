@@ -13,9 +13,7 @@
     <h1 id="errHeader"></h1>
 
     <div id="wslList">
-        <distro-list v-for="(distro, index) in distros" :key="distro.index" :name="distro" :id="index">
-
-        </distro-list>
+      <distro-list v-for="(distro, index) in distros" :key="distro.index" :name="distro" :id="index" />
     </div>
 
     <div class="fixed-bottom-left">

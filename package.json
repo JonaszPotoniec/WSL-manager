@@ -19,7 +19,7 @@
   "homepage": "https://github.com/JonaszPotoniec/WSL-manager#readme",
   "dependencies": {
     "electron": "^4.0.5",
-    "jquery": "3.4.0",
+    "jquery": "3.5.0",
     "jsonfile": "^4.0.0",
     "node-run-cmd": "1.0.1",
     "vue": "2.5.16"

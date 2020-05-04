@@ -1,7 +1,7 @@
 # WSL Manager
 #### An easy way to manage your multiple linux subsystems
   
-For now my app let's you delete or set as default any installed instance of WSL
+For now my app lets you delete or set as default any installed instance of WSL
 ![App screenshot](docs/img/app.png)
 
 It supports extremally useful icon in notification area which lets you set your default distribution without opening an app

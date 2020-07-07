@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/JonaszPotoniec/WSL-manager#readme",
   "dependencies": {
-    "electron": "^4.0.5",
+    "electron": "^7.2.4",
     "jquery": "3.4.0",
     "jsonfile": "^4.0.0",
     "node-run-cmd": "1.0.1",

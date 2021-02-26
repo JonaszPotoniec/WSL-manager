@@ -21,12 +21,18 @@ let config = [];
 global.sharedObj = {distros: []};
 
 let mainWindow;
-let defaultWindowOpts = {width: 800, height: 600, fullscreen: false, titleBarStyle: 'hidden'};
-let myOpts = Object.assign({}, defaultWindowOpts, {
-    titleBarStyle: 'hidden',
-    overlayScrollbars: false,
-    icon: iconpath
-});
+let windowOpts = {
+  width: 800,
+  height: 600,
+  fullscreen: false,
+  titleBarStyle: 'hidden',
+  titleBarStyle: 'hidden',
+  overlayScrollbars: false,
+  icon: iconpath,
+  webPreferences: {
+      nodeIntegration: true
+  }
+};
 
 function createTray(){
     tray = new electron.Tray(iconpath);
@@ -90,7 +96,7 @@ function trayContent(){
 }
 
 function createWindow() {
-    mainWindow = new BrowserWindow(myOpts);
+    mainWindow = new BrowserWindow(windowOpts);
     mainWindow.setMenu(null);
 
     if(config["debug"])

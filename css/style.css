@@ -1,58 +1,196 @@
 body {
-  background-color: #202020;
+    background-color: #fafafa;
+    font-family: 'Lato', sans-serif;
 }
 
-li {
-  font-style: Roboto;
-  border: 1px solid black;
-  margin: 2%;
-  padding: 2%;
-  width: 100%;
-}
-
-ul {
-  position: relative;
-  left: 0;
-  list-style-type: none;
-  margin: 1%;
-  padding: 0
+#wslList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(21em, 1fr));
 }
 
 .box {
-  color: rgb(205, 205, 205);
-  background: #3b3b3b;
-  text-align: center;
-  float: left;
-  width: 200px;
-  padding-bottom: 2%;
-  margin: 10px;
-  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.12), 0 1px 2px rgba(255, 255, 255, 0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  overflow: hidden;
+    border: 0.2em #9ce1fc solid;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 2em;
+    font-size: 100%;
 }
 
-.box h1 {
-  font-size: 120%;
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+.box > * {
+    font-size: 110%;
 }
 
-.button {
-  color: rgb(205, 205, 205);
-  background: #3b3b3b;
-  text-align: center;
-  margin: 3% auto 3% auto;
-  border-radius: 2px;
-  padding: 2%;
-  width: 80%;
-  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.12), 0 1px 2px rgba(255, 255, 255, 0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  font-size: 120%;
-  cursor: pointer;
+input[type='number'] {
+    border: none;
+    padding: .15em .5em;
+    border-radius: .5em;
 }
 
-.button:hover {
-  margin-top: 4%;
-  padding-bottom: 0;
-  box-shadow: 0 14px 28px rgba(255, 255, 255, 0.25), 0 10px 10px rgba(255, 255, 255, 0.22);
-  font-size: 130%;
+.formContainer > button {
+    border: none;
+    padding: .2em .5em;
+    border-radius: .5em;
+}
+
+.formContainer > p {
+    padding: .2em .5em;
+    font-size: .8em;
+    position: absolute;
+    bottom: 5%;
+    text-align: center;
+}
+
+/*
+
+    nice buttons
+    https://codepen.io/jonaszpotoniec/pen/zajLOg
+
+ */
+
+.nice-btn.green {
+    --border-color: #bce2ba;
+    --water-color: #d9efd7;
+    --hue-color: #e6ffe8;
+    --text-color: #80a87e;
+}
+
+.nice-btn.red {
+    --border-color: #e0a6a6;
+    --water-color: #f4d0d0;
+    --hue-color: #ffd9d9;
+    --text-color: #c68383;
+}
+
+.nice-btn.blue {
+    --border-color: #628fe0;
+    --water-color: #b0c9e0;
+    --hue-color: #e0f3ff;
+    --text-color: #3665bc;
+}
+
+.nice-btn.grey {
+    --border-color: #6d6d6d;
+    --water-color: #b1b1b1;
+    --hue-color: #e6e6e6;
+    --text-color: #6d6d6d;
+}
+
+.nice-btn {
+    position: relative;
+    font-family: 'Lato', sans-serif;
+    color: var(--text-color);
+    margin: 1em 1em 0 0;
+    padding: .8em;
+    border: solid var(--border-color) 0.1em;
+    border-radius: 1.5em;
+    background-color: rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    transition: .3s;
+    user-select: none;
+}
+
+.nice-btn:before, .nice-btn:after {
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: var(--water-color);
+    transition: all 1s;
+    z-index: -1;
+}
+
+.nice-btn:before {
+    width: 2em;
+    height: 2em;
+    left: -1em;
+    top: 100%;
+    box-shadow: 1.3em 0.5em 0 0 var(--water-color), 2.5em 0.1em 0 0 var(--water-color), 3.5em 0.2em 0 0 var(--water-color), 4.7em 0.5em 0 0 var(--water-color), 5.5em 0.1em 0 0 var(--water-color), 6.5em 0.5em 0 0 var(--water-color), 8.5em 0.5em 0 0 var(--water-color), 7.5em 0.3em 0 0 var(--water-color);
+    border: 0;
+    border-radius: 50%;
+}
+
+.nice-btn:after {
+    width: 150%;
+    height: 100%;
+    left: -1em;
+    top: 130%;
+    border: 0;
+}
+
+.nice-btn:hover:before {
+    top: -10%;
+}
+
+.nice-btn:hover:after {
+    top: 0;
+}
+
+.nice-btn:active {
+    box-shadow: 0 0 1em 1em var(--hue-color);
+}
+
+.fixed-bottom-left {
+    position: fixed;
+    bottom: 0;
+    margin: .5em;
+    vertical-align: bottom;
+}
+
+/*
+
+ foldable settings
+ https://codepen.io/jonaszpotoniec/pen/PaeXEr?editors=1100
+
+*/
+
+#settings > input {
+    display: none;
+}
+
+
+
+#settings > input:checked + .nice-btn:before {
+    top: -10%;
+}
+
+#settings > input:checked + .nice-btn:after {
+    top: 0;
+}
+
+#settings > input:checked + label + .contentContainer {
+    width: 21em;
+}
+
+#settings > .contentContainer {
+    width: 0;
+    overflow: hidden;
+    transition: all 1s;
+    position: absolute;
+    top: -22em;
+    left: 5.5em;
+}
+
+#settings > .contentContainer > .formContainer {
+    background: linear-gradient(45deg, #070606, #42352a);
+    width: 20em;
+    height: 30em;
+    position: relative;
+    left: 1.5em;
+    text-align: center;
+    color: white;
+}
+
+#settings > .contentContainer > .formContainer:before {
+    content: "";
+    display: block;
+    position: relative;
+    width: 2em;
+    height: 2em;
+    top: 27.55em;
+    left: -1em;
+    background: linear-gradient(90deg, #080707, #0b0909);
+    transform: rotate(45deg);
+}
+
+#settings > .contentContainer > .formContainer > form > * {
+    margin: 1em;
 }
